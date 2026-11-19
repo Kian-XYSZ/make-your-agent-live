@@ -89,10 +89,34 @@ myal qq status                                # 查连接
 
 ## 安装
 
+### 国内（不用翻墙）
+
 ```bash
-npm i -g make-your-agent-live      # 全局，之后直接用 myal
-# 或者不装，每次都 npx
-npx make-your-agent-live doctor
+# DSH 插件方式 —— 从 Gitee 镜像装
+dsh plugin --profile desktop add git+https://gitee.com/kunliang-zhang/make-your-agent-live.git
+```
+
+```bash
+# 命令行方式 —— clone 下来直接用
+git clone https://gitee.com/kunliang-zhang/make-your-agent-live.git
+cd make-your-agent-live
+node cli/index.js doctor
+```
+
+### 海外 / 有代理
+
+```bash
+dsh plugin --profile desktop add github:Kian-XYSZ/make-your-agent-live
+# 或者
+git clone https://github.com/Kian-XYSZ/make-your-agent-live.git
+cd make-your-agent-live && node cli/index.js doctor
+```
+
+### 装完全局命令（可选）
+
+```bash
+npm link        # 之后可以直接敲 myal
+myal doctor
 ```
 
 `myal doctor` 会告诉你还缺什么：
@@ -105,6 +129,9 @@ npx make-your-agent-live doctor
 ✔ ASR 可用 provider  — minimax → mimo
 ! 音色样本    — 没设 tts.voiceFile，会退化到内置音色
 ```
+
+> **两个仓库的分工**：GitHub 是主仓库（issue / star / PR 都在那边），
+> Gitee 是同步镜像，只为国内安装方便。两边内容一致。
 
 ---
 
