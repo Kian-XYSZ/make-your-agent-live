@@ -92,8 +92,12 @@ myal qq status                                # 查连接
 ### npm（最省事，国内走 npmmirror 镜像，不用翻墙）
 
 ```bash
+# 命令行
 npm i -g make-your-agent-live
 myal doctor
+
+# DSH 插件（装完多出 tts / asr 两个工具）
+dsh plugin --profile desktop add make-your-agent-live
 ```
 
 或者不装，直接跑：
@@ -102,7 +106,7 @@ myal doctor
 npx make-your-agent-live doctor
 ```
 
-### 国内 Git 方式
+### 国内 Git 方式（npm 用不了时）
 
 ```bash
 # DSH 插件方式 —— 从 Gitee 镜像装
