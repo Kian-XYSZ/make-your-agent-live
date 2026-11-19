@@ -1,6 +1,6 @@
-﻿{
+{
   "name": "make-your-agent-live",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Give your AI agent its own voice and ears: TTS voice cloning + ASR speech recognition, with a QQ / OneBot 11 bridge. Framework-agnostic — works with DSH, Claude Code, Cursor, Codex, or a shell script.",
   "type": "module",
   "bin": {
@@ -19,6 +19,8 @@
     "node": ">=18"
   },
   "scripts": {
+    "prepublishOnly": "node scripts/check-files.mjs",
+    "check": "node scripts/check-files.mjs",
     "doctor": "node ./cli/index.js doctor",
     "selftest": "node ./cli/index.js doctor --full"
   },
