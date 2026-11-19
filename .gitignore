@@ -1,0 +1,17 @@
+node_modules/
+*.log
+.env
+.env.local
+myal.config.json
+myal.config.yaml
+voice/
+sep/
+out/
+*.wav
+*.mp3
+!examples/**/*.md
+.DS_Store
+Thumbs.db
+
+# 本仓库开发用的临时 CDP 脚本，不进版本库
+tools/

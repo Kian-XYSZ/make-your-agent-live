@@ -1,0 +1,59 @@
+{
+  "name": "make-your-agent-live",
+  "version": "0.1.0",
+  "description": "Give your AI agent its own voice and ears: TTS voice cloning + ASR speech recognition, with a QQ / OneBot 11 bridge. Framework-agnostic — works with DSH, Claude Code, Cursor, Codex, or a shell script.",
+  "type": "module",
+  "bin": {
+    "myal": "./cli/index.js"
+  },
+  "exports": {
+    ".": "./src/index.js",
+    "./dsh": "./adapters/dsh/index.js"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./adapters/dsh/cordis.patch.yml"
+    }
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "doctor": "node ./cli/index.js doctor",
+    "selftest": "node ./cli/index.js doctor --full"
+  },
+  "files": [
+    "AGENTS.md",
+    "README.md",
+    "LICENSE",
+    "cli",
+    "src",
+    "adapters",
+    "personas",
+    "docs",
+    "examples",
+    ".env.example"
+  ],
+  "keywords": [
+    "agent",
+    "tts",
+    "asr",
+    "voice-clone",
+    "qq",
+    "onebot",
+    "snowluma",
+    "dsh",
+    "dsh-plugin",
+    "claude-code",
+    "ai-companion"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kian-XYSZ/make-your-agent-live.git"
+  },
+  "homepage": "https://github.com/Kian-XYSZ/make-your-agent-live#readme",
+  "bugs": {
+    "url": "https://github.com/Kian-XYSZ/make-your-agent-live/issues"
+  }
+}
