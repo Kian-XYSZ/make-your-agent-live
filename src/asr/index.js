@@ -28,8 +28,8 @@ export async function transcribe(audioPath, options = {}, config) {
   if (chain.length === 0) {
     throw new Error(
       '没有可用的 ASR。至少配一个：MINIMAX_API_KEY（有 M Plan 就含）、'
-      + 'DEEPSEEK_API_KEY（0.39 元/小时）、XIAOMI_API_KEY（限时免费），'
-      + '或者 LOCAL_ASR_ENDPOINT 跑本地模型。',
+      + 'DEEPSEEK_API_KEY（0.39 元/小时）、XIAOMI_API_KEY（按量付费，不是免费），'
+      + '或者 LOCAL_ASR_ENDPOINT 跑本地模型（本地才是免费的）。',
     );
   }
 

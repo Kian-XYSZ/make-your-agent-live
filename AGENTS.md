@@ -101,7 +101,7 @@ uv run --with demucs python -m demucs --two-stems=vocals \
 
 | 方案 | 去哪拿 | 成本 |
 |---|---|---|
-| **MiMo（默认）** | `platform.xiaomimimo.com` | 限时免费 |
+| **MiMo（默认）** | `platform.xiaomimimo.com` | **TTS 限时免费**（ASR 不是） |
 | MiniMax | `platform.minimax.cn/console/plan` | 有会员就含 |
 | 本地 | 自己跑服务 | 免费 |
 | 系统语音 | 不用 key | 免费兜底 |
@@ -139,8 +139,11 @@ myal tts "测试，一二三" -o /tmp/t.wav
 |---|---|---|
 | **MiniMax** | 有 M Plan 就含 | 已有会员（默认推荐） |
 | DeepSeek | 0.39 元/小时 | 想统一 billing |
-| MiMo | 限时免费 | 备用 |
-| 本地 SenseVoice / whisper | 永久免费 | 不联网 |
+| MiMo | 按量付费（**不是免费**） | 备用 |
+| 本地 SenseVoice / whisper | 永久免费 | 不联网、有显卡 |
+
+⚠️ **云端 ASR 没有免费的**。小米只有 **TTS** 限免，ASR 要钱。
+不要跟用户说"识别免费"——他会以为配完就能白用。
 
 配了多个会自动降级，**不会因为一个挂了就聋了**。
 

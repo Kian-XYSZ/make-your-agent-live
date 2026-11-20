@@ -35,7 +35,7 @@ export async function speak(text, options = {}, config) {
   const chain = candidates(cfg, 'tts');
   if (chain.length === 0) {
     throw new Error(
-      '没有可用的 TTS。至少配一个：XIAOMI_API_KEY（MiMo，限时免费）、'
+      '没有可用的 TTS。至少配一个：XIAOMI_API_KEY（MiMo，TTS 限时免费）、'
       + 'MINIMAX_API_KEY + MINIMAX_GROUP_ID、LOCAL_TTS_ENDPOINT，'
       + '或者用系统语音（Windows/macOS 开箱即用）。',
     );

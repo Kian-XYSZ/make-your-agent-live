@@ -77,7 +77,8 @@ myal tts "亮哥，该学习了" --voice ./voice/her.wav -o out.wav
 - **设计**：一句文字描述 → 凭空造一个音色（没有样本时用）
 - **内置**：9 个现成音色（图省事）
 
-> 默认走小米 MiMo，**限时免费**，克隆和音色设计都免费。
+> 默认走小米 MiMo TTS，**限时免费**（克隆和音色设计都免费）。
+> ⚠️ 注意：免费的是 **TTS**，它家的 **ASR 不是免费的**。
 > 详见 [docs/03-TTS.md](./docs/03-TTS.md)
 
 ### 2. ASR：让她听懂
@@ -92,9 +93,10 @@ myal asr voice.wav
 |---|---|
 | MiniMax | 有 M Plan 就含（默认第一顺位） |
 | DeepSeek | 0.39 元/小时 |
-| MiMo | 限时免费 |
-| 本地 | 免费（whisper / SenseVoice） |
+| MiMo | **按量付费（不是免费）** |
+| 本地 whisper / SenseVoice | **免费**，但要自己跑 |
 
+> 云端 ASR **没有免费的**，只有本地模型免费。
 > 详见 [docs/02-ASR.md](./docs/02-ASR.md)
 
 ### 3. QQ：把它接进聊天
