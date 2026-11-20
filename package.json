@@ -1,10 +1,10 @@
 {
   "name": "make-your-agent-live",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "description": "让 agent 像人一样在 QQ 里主动跟你说话：克隆专属音色、听懂语音、会主动找你（AI 助理 / AI 宠物）。不绑定框架，DSH / Claude Code / Cursor 都能用。⚠️ QQ 接入走个人号协议端，有封号风险，请用小号测试，不推荐商用。",
   "type": "module",
   "bin": {
-    "myal": "./cli/index.js"
+    "myal": "cli/index.js"
   },
   "exports": {
     ".": "./src/index.js",
