@@ -25,6 +25,7 @@ import { ffmpegAvailable } from '../src/ffmpeg.js';
 const HELP = `myal —— give your agent a voice and ears
 
 用法:
+  myal init                     打印「发给 agent 的那句话」
   myal tts "要说的文字" [-o 输出.wav] [选项]
   myal asr <音频文件> [--lang zh]
   myal qq send [--text 文字 | --record 音频 | --image 图片] (--to QQ号 | --group 群号)
@@ -236,6 +237,50 @@ async function cmdConfig() {
   console.log(JSON.stringify(masked, null, 2));
 }
 
+// ── init：把「该发给 agent 的那句话」打印出来 ────────────────────────────────
+const START_URL = 'https://gitee.com/kunliang-zhang/make-your-agent-live/raw/main/START.md';
+const AGENTS_URL = 'https://gitee.com/kunliang-zhang/make-your-agent-live/raw/main/AGENTS.md';
+
+async function cmdInit() {
+  const line = `读 ${START_URL} 然后照它说的帮我装好，一步一步问我。`;
+
+  console.log('');
+  console.log('─'.repeat(66));
+  console.log('  把下面这句话，原样发给你的 AI');
+  console.log('  （豆包 / DeepSeek / ChatGPT / Claude / Cursor 都行）');
+  console.log('─'.repeat(66));
+  console.log('');
+  console.log(`  ${line}`);
+  console.log('');
+  console.log('─'.repeat(66));
+  console.log('');
+
+  // 顺手做个环境体检，让用户知道还缺什么
+  const node = process.version;
+  const ff = await ffmpegAvailable();
+  const cfg = loadConfig();
+  const ttsChain = candidates(cfg, 'tts');
+  const asrChain = candidates(cfg, 'asr');
+
+  console.log('  本机环境');
+  console.log(`    Node        ${node}`);
+  console.log(`    ffmpeg      ${ff ? '有（能变速）' : '没有（只是不能变速，不影响说话）'}`);
+  console.log(`    TTS         ${ttsChain.length ? ttsChain.join(' → ') : '未配置 API Key'}`);
+  console.log(`    ASR         ${asrChain.length ? asrChain.join(' → ') : '未配置 API Key'}`);
+  console.log('');
+
+  if (!ttsChain.length) {
+    console.log('  ⚠ 还没配 API Key，agent 会告诉你填在哪（不会跟你要 key）。');
+    console.log('');
+  }
+
+  console.log('  更长的说明书（agent 读这个）：');
+  console.log(`    ${AGENTS_URL}`);
+  console.log('');
+  console.log('  ⚠ QQ 接入走个人号协议端，有封号风险。请用小号，不推荐商用。');
+  console.log('');
+}
+
 // ── main ─────────────────────────────────────────────────────────────────────
 async function main() {
   const argv = process.argv.slice(2);
@@ -251,6 +296,7 @@ async function main() {
 
   try {
     switch (command) {
+      case 'init': return await cmdInit();
       case 'tts': return await cmdTts(parsed);
       case 'asr': return await cmdAsr(parsed);
       case 'qq': return await cmdQq(parsed);

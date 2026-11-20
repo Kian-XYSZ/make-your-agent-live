@@ -24,6 +24,20 @@ npx make-your-agent-live qq send --record hi.wav --to 123456
 
 ---
 
+## 一句话装好
+
+**不想自己配？把这句发给你的 AI**（豆包 / DeepSeek / ChatGPT / Claude / Cursor 都行）：
+
+```
+读 https://gitee.com/kunliang-zhang/make-your-agent-live/raw/main/START.md 然后照它说的帮我装好，一步一步问我。
+```
+
+它读完会自己问你三件事（声音、语音识别、要不要接 QQ），然后带你装完。
+
+> 跑 `npx make-your-agent-live init` 也能打印这句话，顺便体检本机环境。
+
+---
+
 ## ⚠️ 风险提示（动手前必读）
 
 QQ 这一层走的是**个人号 + 第三方协议端**（SnowLuma / NapCat / Lagrange 这类）。
